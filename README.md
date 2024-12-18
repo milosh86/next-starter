@@ -26,6 +26,11 @@ It is significantly faster than Eslint and Prettier, and it is simpler to config
     "check": "npx @biomejs/biome check ./src" // lint and format check (intended for CI)
   }
   ```
-  
+
+## (3) Pre-commit Git Hooks 
+We will use `Husky` and `lint-staged` to set up pre-commit hooks.
+
+- Install Husky : `npm install --save-dev husky`
+- Husky init (adds prepare script): `npx husky init`
 
 
