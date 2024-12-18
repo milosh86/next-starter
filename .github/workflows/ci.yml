@@ -1,0 +1,38 @@
+name: Next Starter - CI
+
+concurrency:
+  group: ${{ github.head_ref }}${{ github.ref }}-frontend
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  next-starter-ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run lint and format check
+        run: npm run check
+
+#      - name: Run tests
+#        run: npm run test
+
+      - name: Build application
+        run: npm run build
