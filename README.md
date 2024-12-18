@@ -32,5 +32,17 @@ We will use `Husky` and `lint-staged` to set up pre-commit hooks.
 
 - Install Husky : `npm install --save-dev husky`
 - Husky init (adds prepare script): `npx husky init`
-
+- Install lint-staged: `npm install --save-dev lint-staged`
+- Update `.husky/pre-commit` to run `lint-staged`:
+  ```bash
+  npx lint-staged
+  ```
+- Update `package.json` to include `lint-staged` configuration (see [biome docs](https://biomejs.dev/recipes/git-hooks/#lint-staged)):
+  ```json
+  "lint-staged": {
+      "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+          "biome check --files-ignore-unknown=true"
+      ]
+  }
+  ```
 
