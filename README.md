@@ -60,7 +60,7 @@ See `.github/PULL_REQUEST_TEMPLATE.md` for the default PR template.
 ## (5) Setup Vitest and React Testing Library
 
 We will use `Vitest` and `React Testing Library` as our main tools for testing.
-Dor more information check the [Next.js documentation](https://nextjs.org/docs/app/building-your-application/testing/vitest)
+For more information check the [Next.js documentation](https://nextjs.org/docs/app/building-your-application/testing/vitest)
 
 - Install Vitest dependencies: `npm install -D vitest @vitejs/plugin-react jsdom @testing-library/react @testing-library/dom vite-tsconfig-paths`
 - Add `vitest.config.mts`
@@ -72,3 +72,10 @@ Dor more information check the [Next.js documentation](https://nextjs.org/docs/a
   }
   ```
 - Write your tests in `__tests__` directory or alongside the component files (with `.test.ts(x)` extension).
+
+## (5.1) Setup Playwright for E2E tests
+For more information check the [Next.js documentation](https://nextjs.org/docs/app/building-your-application/testing/playwright)
+
+- To install Playwright, run `npm init playwright` or `yarn create playwright`.
+- Go through the setup process and select the options that suit your project.
+  - It can also create a GitHub Actions workflow for you. 
