@@ -1,3 +1,7 @@
+Step-by-step guide to set up a production-ready Next.js project for 2025. Every 
+step is optional and can be skipped if not needed or swapped for a different 
+tool depending on the project requirements.
+
 ## (1) Next.js init
 
 ```bash
