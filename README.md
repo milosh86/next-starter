@@ -2,6 +2,16 @@ Step-by-step guide to set up a production-ready Next.js project for 2025. Every
 step is optional and can be skipped if not needed or swapped for a different 
 tool depending on the project requirements.
 
+Selected tools:
+- Next.js with TypeScript, using App Router
+- Tailwind CSS for styling
+- Biome for linting and formatting
+- Husky and lint-staged for pre-commit hooks
+- GitHub Actions for CI
+- Vitest and React Testing Library for unit and integration tests
+- Playwright for E2E tests
+- Storybook for component development and documentation
+
 ## (1) Next.js init
 
 ```bash
