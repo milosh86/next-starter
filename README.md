@@ -84,3 +84,16 @@ For more information check the [Next.js documentation](https://nextjs.org/docs/a
   It will start the development server before running the tests.
 - Update Vitest config to exclude e2e tests. Make sure to keep the default `exclude` value!
 See `vitest.config.mts` for the configuration.
+
+## (6) Setup Storybook
+
+We will use Storybook to develop components in isolation and document them.
+
+- Init Storybook: `npx storybook@latest init`. This will:
+  - Add `.storybook` directory with the configuration
+  - Add `storybook` scripts to `package.json`
+  - Add dependencies and configuration relevant to Next.js 
+  - Add `src/stories` example directory
+- Add `sb` shortcut to `package.json`
+- Rename script `build-storybook` to `storybook:build`
+

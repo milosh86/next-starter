@@ -11,7 +11,10 @@
         "test": "vitest",
         "test:e2e": "npx playwright test",
         "pre-commit": "lint-staged",
-        "prepare": "husky"
+        "prepare": "husky",
+        "storybook": "storybook dev -p 6006",
+        "sb": "npm run storybook",
+        "storybook:build": "storybook build"
     },
     "dependencies": {
         "next": "15.1.1",
@@ -20,7 +23,15 @@
     },
     "devDependencies": {
         "@biomejs/biome": "1.9.4",
+        "@chromatic-com/storybook": "^3.2.3",
         "@playwright/test": "^1.49.1",
+        "@storybook/addon-essentials": "^8.4.7",
+        "@storybook/addon-interactions": "^8.4.7",
+        "@storybook/addon-onboarding": "^8.4.7",
+        "@storybook/blocks": "^8.4.7",
+        "@storybook/nextjs": "^8.4.7",
+        "@storybook/react": "^8.4.7",
+        "@storybook/test": "^8.4.7",
         "@testing-library/dom": "^10.4.0",
         "@testing-library/react": "^16.1.0",
         "@types/node": "^20",
@@ -31,6 +42,7 @@
         "jsdom": "^25.0.1",
         "lint-staged": "^15.2.11",
         "postcss": "^8",
+        "storybook": "^8.4.7",
         "tailwindcss": "^3.4.1",
         "typescript": "^5",
         "vite-tsconfig-paths": "^5.1.4",
