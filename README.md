@@ -79,3 +79,8 @@ For more information check the [Next.js documentation](https://nextjs.org/docs/a
 - To install Playwright, run `npm init playwright` or `yarn create playwright`.
 - Go through the setup process and select the options that suit your project.
   - It can also create a GitHub Actions workflow for you. 
+- Set baseURL to `http://localhost:3000` in `playwright.config.ts`.
+- Uncomment `webServer` in `playwright.config.ts` and set `command` to `npm run dev`.
+  It will start the development server before running the tests.
+- Update Vitest config to exclude e2e tests. Make sure to keep the default `exclude` value!
+See `vitest.config.mts` for the configuration.
