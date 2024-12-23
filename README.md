@@ -198,3 +198,79 @@ color of the component, we only explicitly use `-foreground` suffix.
 `input` - border color for inputs such as `<Input />`, `<Select />`, `<Textarea />`
 
 `ring` - focus ring color
+
+## (8) Project structure
+
+We will structure the project in a way that is easy to maintain over time. It is
+based around well-defined modules with clear interfaces and responsibilities.
+
+- `src/components` - library of reusable (generic) components. This should be 
+treated almost as an external library, as it should be possible to extract it as
+a separate package in the future.
+- `src/features` - verticals of the application. Every feature folder should 
+contain domain specific code for a given feature. Features could be application
+specific or generic.
+- `src/app` - Next.js app root. It should consume features and components to 
+create the final application.
+- `src/utils` - generic utility functions
+- `src/hooks` - generic hooks
+- `src/api` - pre-configured API clients
+- `src/types` - TypeScript types (top level, like environment variables, window,
+etc.)
+- `src/assets` - static assets
+- `src/stories` - Storybook entry point (individual stories can be placed 
+alongside components)
+
+## (8.1) Feature structure
+
+Structure of a feature folder should be as follows, but feel free to adapt this
+based on the needs and complexity of the feature (start simple and evolve toward
+this):
+
+```
++-- api         # exported API request declarations and api hooks related to a specific feature
+|
++-- assets      # assets folder can contain all the static files for a specific feature
+|
++-- components  # components scoped to a specific feature
+|
++-- hooks       # hooks scoped to a specific feature
+|
++-- routes      # route components for a specific feature pages
+|
++-- stores      # state stores for a specific feature
+|
++-- types       # typescript types for TS specific feature domain
+|
++-- utils       # utility functions for a specific feature
+|
++-- index.ts 
+```
+
+**IMPORTANT:** To maintain modularity, everything from a feature should be 
+exported from the index.ts file which behaves as the public API of the feature!
+
+You should import stuff from other features only by using:
+```typescript
+import {FeatureComponent} from "@/features/some-feature"
+```
+
+and not
+
+```typescript
+import {FeatureComponent} from "@/features/some-feature/components/FeatureComponent"
+```
+
+## (8.2) Configure Biome to prevent imports from internals of a feature or component
+
+- There is not yet a feature parity with ESLint's `no-restricted-imports`. Keep
+an eye on the Biome documentation for updates.
+- We want equivalent to this:
+```json
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["@/features/*/*", "@/components/*/*"]
+      }
+    ],
+```
