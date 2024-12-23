@@ -114,11 +114,19 @@ We will use Storybook to develop components in isolation and document them.
 in the Storybook documentation for more information about limitations and 
 supported features.
 
-## (7) Tailwind CSS
+## (7) Styling
+
+Tailwind CSS is used as a default for styling. [shadcn/ui](https://ui.shadcn.com/) is used for 
+easier creation and styling of basic components.
+
+Styled JSX is also available by default in both Next.js and Storybook, so it can
+be used in special cases where it might be more appropriate than Tailwind.
+
+## (7.1) Tailwind CSS
 
 Added by default in the Next.js template. You can customize it by editing `tailwind.config.js`.
 
-## (7.1) Shadcn/ui
+## (7.2) Shadcn/ui
 
 We will use `shadcn/ui` to build our component library. It is a collection of 
 components built with TailwindCSS. Great advantage is that it provides independent
@@ -139,5 +147,54 @@ components you can copy-paste and use in your project, with maximum customizatio
   - Update `src/app/global.css` with the new CSS variables
     - You can choose to use either CSS variables or Tailwind utility classes for theming
     - We will use CSS variables in this project
-  - Add `cn` utility to `src/lib/utils.ts` (we will later move this to another place) 
-- 
+  - Add `cn` utility to `src/lib/utils.ts` (we will later move this to another place)
+
+## (7.3) Theme
+
+Theme is managed through CSS variables defined in `app/globals.css`, which are
+exposed to the Tailwind through `tailwind.config.js`.
+
+We use a simple `background` and `foreground` convention for colors. The
+`background` variable is used for the background color of the component and the
+foreground variable is used for the **text color**.
+
+>The `-background` suffix is omitted when the variable is used for the background
+color of the component, we only explicitly use `-foreground` suffix.
+
+### List of variables
+
+> NOTE: This is slightly different from the default `shadcn/ui` theme, update as needed.
+
+`background` - default background color (i.e. `<body />` and similar)
+
+`foreground` - default text color
+
+`foreground-secondary` - muted text color on a primary background. Currently derived from `foreground`, with opacity applied.
+
+`title` - title color
+
+`muted` - muted background color
+
+`muted-foreground` - text color on muted background
+
+`card` and `popover` - card and popover background color, currently the same as `muted`
+
+`accent`, `accent-foreground` - used for accents such as hover effects on Ghost Button, <DropdownMenuItem>, <SelectItem>...etc
+
+`primary` - primary button background color
+
+`primary-foreground` - primary button text color
+
+`secondary` - secondary button background color
+
+`secondary-foreground` - secondary button text color
+
+`destructive` - used for destructive actions such as `<Button variant="destructive">`
+
+`destructive-foreground` - destructive button text color
+
+`border` - default border color
+
+`input` - border color for inputs such as `<Input />`, `<Select />`, `<Textarea />`
+
+`ring` - focus ring color
