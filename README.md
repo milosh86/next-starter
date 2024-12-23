@@ -110,4 +110,34 @@ We will use Storybook to develop components in isolation and document them.
   - Add `src/stories` example directory
 - Add `sb` shortcut to `package.json`
 - Rename script `build-storybook` to `storybook:build`
+- Check the [Next.js section](https://storybook.js.org/docs/get-started/frameworks/nextjs) 
+in the Storybook documentation for more information about limitations and 
+supported features.
 
+## (7) Tailwind CSS
+
+Added by default in the Next.js template. You can customize it by editing `tailwind.config.js`.
+
+## (7.1) Shadcn/ui
+
+We will use `shadcn/ui` to build our component library. It is a collection of 
+components built with TailwindCSS. Great advantage is that it provides independent
+components you can copy-paste and use in your project, with maximum customization.
+
+- Init `shadcn/ui`: `npx shadcn@latest init -d`
+  - If using `npm`, it will ask you to use either `--force` or `--legacy-peer-deps`.
+  - If using `yarn`, `bun` or `pnpm`, it will install the package without any additional steps.
+  - See [shadcn/ui documentation](https://ui.shadcn.com/docs/react-19) for more information.
+- Init step will:
+  - Add following dependencies:
+    - `tailwind-merge` and `tailwind-animate`
+    - `lucide-react` (icons)
+    - `class-variance-authority` (for class variance)
+    - `clsx` (for classnames)
+  - Add `components.json` file which holds configuration for your project 
+  - Update `tailwind.config.js` with the new configuration
+  - Update `src/app/global.css` with the new CSS variables
+    - You can choose to use either CSS variables or Tailwind utility classes for theming
+    - We will use CSS variables in this project
+  - Add `cn` utility to `src/lib/utils.ts` (we will later move this to another place) 
+- 
